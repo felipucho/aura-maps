@@ -111,34 +111,45 @@ jest.mock('expo-file-system', () => {
   };
 });
 
-// react-native-maps: no hay mapa real en Node. Lo reemplazamos por View con testID
-// para poder encontrar el mapa y los marcadores en los tests.
+// react-native-maps: no hay mapa real en Node. Lo reemplazamos por Views con testID
+// para poder encontrar el mapa, los marcadores y los callouts en los tests.
+// Pasamos todas las props (onLongPress, initialRegion, etc.) para poder dispararlas desde los tests.
 jest.mock('react-native-maps', () => {
   const React = require('react');
   const { View } = require('react-native');
 
   /**
-   * Mapa falso. Renderiza una View y deja pasar sus hijos.
-   * @param {object} props - Props del mapa (region, onLongPress, etc.).
+   * Mapa falso. Renderiza una View con testID "mapa" y deja pasar sus props e hijos.
+   * @param {object} props - Props del mapa (initialRegion, onLongPress, etc.).
    * @returns {JSX.Element} View con testID "mapa".
    */
   function MapViewFalso(props) {
-    return React.createElement(View, { testID: 'mapa' }, props.children);
+    return React.createElement(View, { ...props, testID: 'mapa' }, props.children);
   }
 
   /**
    * Marcador falso. Renderiza una View con testID "marcador".
-   * @param {object} props - Props del marcador.
+   * @param {object} props - Props del marcador (coordinate, pinColor, etc.).
    * @returns {JSX.Element} View con testID "marcador".
    */
   function MarkerFalso(props) {
-    return React.createElement(View, { testID: 'marcador' }, props.children);
+    return React.createElement(View, { ...props, testID: 'marcador' }, props.children);
+  }
+
+  /**
+   * Callout falso. Renderiza sus hijos dentro de una View con testID "callout".
+   * @param {object} props - Props del callout.
+   * @returns {JSX.Element} View con testID "callout".
+   */
+  function CalloutFalso(props) {
+    return React.createElement(View, { testID: 'callout' }, props.children);
   }
 
   return {
     __esModule: true,
     default: MapViewFalso,
     Marker: MarkerFalso,
+    Callout: CalloutFalso,
     PROVIDER_GOOGLE: 'google',
   };
 });
@@ -147,3 +158,8 @@ jest.mock('react-native-maps', () => {
 jest.mock('react-native-safe-area-context', () =>
   require('react-native-safe-area-context/jest/mock').default,
 );
+
+// react-native-gesture-handler: su jestSetup oficial registra los gestos en Node.
+require('react-native-gesture-handler/jestSetup');
+
+

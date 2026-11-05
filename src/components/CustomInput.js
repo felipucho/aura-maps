@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   },
   input: {
     minHeight: theme.tamanioTactil,
-    borderWidth: 1,
+    borderWidth: theme.grosor.fino,
     borderColor: theme.colors.borde,
     borderRadius: theme.radius.md,
     backgroundColor: theme.colors.superficie,
@@ -87,11 +87,11 @@ const styles = StyleSheet.create({
   },
   inputEnfocado: {
     borderColor: theme.colors.primario,
-    borderWidth: 2,
+    borderWidth: theme.grosor.marcado,
   },
   inputConError: {
     borderColor: theme.colors.error,
-    borderWidth: 2,
+    borderWidth: theme.grosor.marcado,
   },
   inputMultilinea: {
     minHeight: theme.tamanioTactil * 2,

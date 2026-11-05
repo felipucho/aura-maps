@@ -257,7 +257,7 @@ export function PlaceModal({ visible, coordenada, lugaresExistentes = [], onCerr
     }
   }
 
-  // FlatList en vez de ScrollView (regla del proyecto). Con un solo item, funciona como
+  // FlatList (regla del proyecto). Con un solo item, funciona como
   // un área con scroll para que el formulario no quede tapado por el teclado.
   const formulario = (
     <View style={styles.formulario}>
@@ -393,14 +393,14 @@ const styles = StyleSheet.create({
   },
   vistaPrevia: {
     width: '100%',
-    height: 160,
+    height: theme.tamanios.imagenPrevia,
     borderRadius: theme.radius.lg,
     marginVertical: theme.spacing.sm,
   },
   sinImagen: {
-    height: 160,
+    height: theme.tamanios.imagenPrevia,
     borderRadius: theme.radius.lg,
-    borderWidth: 1,
+    borderWidth: theme.grosor.fino,
     borderColor: theme.colors.borde,
     borderStyle: 'dashed',
     alignItems: 'center',

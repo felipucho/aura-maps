@@ -11,7 +11,7 @@ import { theme } from '../utils/theme';
 
 /**
  * Botón reutilizable. Cuándo se ejecuta: cada render del padre.
- * Pressable en vez de Touchable*: el proyecto lo exige, y Pressable da el estado "pressed".
+ * Usa Pressable (regla del proyecto), que da el estado "pressed".
  * @param {object} props - Props del botón.
  * @param {string} props.title - Texto del botón. Usar verbos: "Guardar", "Entrar".
  * @param {Function} props.onPress - Se ejecuta al tocar (no se ejecuta si está deshabilitado o cargando).
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   },
   contorno: {
     backgroundColor: theme.colors.superficie,
-    borderWidth: 1,
+    borderWidth: theme.grosor.fino,
     borderColor: theme.colors.primario,
   },
   contornoPresionado: {
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   // Escala levemente el botón al tocarlo: efecto de "botón que se hunde".
   escalaPresionada: {
-    transform: [{ scale: 0.98 }],
+    transform: [{ scale: theme.escalaPresion }],
   },
   deshabilitado: {
     backgroundColor: theme.colors.deshabilitado,

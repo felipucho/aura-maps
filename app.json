@@ -34,7 +34,8 @@
           "photosPermission": "Lorenzo necesita acceder a tu galería para elegir la foto de un lugar.",
           "cameraPermission": "Lorenzo necesita la cámara para sacar la foto de un lugar."
         }
-      ]
+      ],
+      "expo-asset"
     ]
   }
 }

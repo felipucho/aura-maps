@@ -66,6 +66,25 @@ const fontWeight = {
 /** Alto y ancho mínimo de cualquier área tocable (guía de accesibilidad). */
 const tamanioTactil = 44;
 
+/** Medidas fijas de imágenes e íconos, en px. Así ningún componente escribe números sueltos. */
+const tamanios = {
+  miniatura: 56,
+  imagenPrevia: 160,
+  imagenCallout: 110,
+  calloutAncho: 220,
+  icono: 22,
+};
+
+/** Grosores de borde, en px. */
+const grosor = {
+  fino: 1,
+  marcado: 2,
+  acento: 4,
+};
+
+/** Escala que se aplica al botón mientras se presiona (efecto de hundido). */
+const escalaPresion = 0.98;
+
 export const theme = {
   colors,
   spacing,
@@ -73,6 +92,9 @@ export const theme = {
   fontSize,
   fontWeight,
   tamanioTactil,
+  tamanios,
+  grosor,
+  escalaPresion,
 };
 
 export default theme;
