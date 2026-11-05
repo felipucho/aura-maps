@@ -15,6 +15,7 @@
 const colors = {
   primario: '#2F5D50',
   primarioPresionado: '#234A3F',
+  primarioSuave: '#DCE7E3',
   secundario: '#E0A526',
   fondo: '#EEF2F1',
   superficie: '#FFFFFF',

@@ -142,3 +142,8 @@ jest.mock('react-native-maps', () => {
     PROVIDER_GOOGLE: 'google',
   };
 });
+
+// react-native-safe-area-context: su mock oficial simula los insets (márgenes del notch) en Node.
+jest.mock('react-native-safe-area-context', () =>
+  require('react-native-safe-area-context/jest/mock').default,
+);
