@@ -40,3 +40,7 @@ yarn-error.*
 /ios
 /android
 coverage/
+
+# archivos locales
+.claude/
+*.zip
